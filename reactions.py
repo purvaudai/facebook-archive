@@ -8,7 +8,7 @@ from datetime import timedelta
 import timestring
 
 def reactions():
-    loc = input('Enter facebook archive extracted location: ')
+    loc = raw_input('Enter facebook archive extracted location: ')
     if not os.path.isdir(loc):
         print("The provided location doesn't seem to be right")
         exit(1)
