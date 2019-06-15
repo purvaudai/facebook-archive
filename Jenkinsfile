@@ -6,6 +6,9 @@ pipeline {
             steps{
                 script{
                     app = docker.build("purvaudai/facebook-archive")
+                    docker.withRegistry('', 'dockerhub'){
+                        app.push("${env.BUILD_NUMBER}")
+                    }
                 }
             }
         }
