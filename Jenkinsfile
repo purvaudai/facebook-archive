@@ -1,13 +1,13 @@
+def app = 'Unknown'
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-
-                sh 'ls'
+        stage('build'){
+            steps{
+                script{
+                    app = docker.build("purvaudai/facebook-archive")
+                }
             }
         }
-    }
+    }  
 }
